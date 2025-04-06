@@ -59,6 +59,20 @@
         </div>
     </section>
 
+    <section id="form-details">
+        <form action="">
+            <span>LEAVE A MESSAGE</span>
+            <h2>We love to hear from you</h2>
+            <input type="text" placeholder="Your Name" id="name">
+            <input type="email" placeholder="E-mail" id="email">
+            <input type="text" placeholder="Subject" id="subject">
+            <textarea name="" id="message" cols="30" rows="10" placeholder="Your Message" ></textarea>
+            <button type="submit">Submit</button>
+            <br>
+            <div class="message" id="responseMsg"></div>
+        </form>
+    </section>
+
     <section id = "newsletter" class = "section-p1 section-m1">
         <div class = "newstext">
             <h4>Sign Up For Updates</h4>
@@ -115,6 +129,53 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const form = document.querySelector('#form-details form');
+          const nameInput = document.getElementById('name');
+          const emailInput = document.getElementById('email');
+          const subjectInput = document.getElementById('subject');
+          const messageInput = document.getElementById('message');
+          const responseMsg = document.getElementById('responseMsg');
+      
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+      
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const subject = subjectInput.value.trim();
+            const message = messageInput.value.trim();
+      
+            // Basic validation
+            if (!name || !email || !subject || !message) {
+              showMessage("Please fill in all fields.", "red");
+              return;
+            }
+      
+            // Email validation
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!emailPattern.test(email)) {
+              showMessage("Please enter a valid email address.", "red");
+              return;
+            }
+      
+            // Simulate sending message
+            form.reset();
+            showMessage("Thank you! Your message has been sent.", "green");
+          });
+      
+          function showMessage(msg, color) {
+            responseMsg.textContent = msg;
+            responseMsg.style.color = color;
+      
+            // Clear message after 5 seconds
+            setTimeout(() => {
+              responseMsg.textContent = "";
+            }, 5000);
+          }
+        });
+      </script>
+      
 
 </body>
 </html>
