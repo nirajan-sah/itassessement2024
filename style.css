@@ -50,9 +50,8 @@ p {
 }
 
 body {
-  width: 100%;
   background-color: #efefea;
-  
+  max-width: 13200px;
 }
 
 #header{
