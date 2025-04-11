@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () 
+{
     const form = document.querySelector('#form-details form');
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
@@ -6,7 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const messageInput = document.getElementById('message');
     const responseMsg = document.getElementById('responseMsg');
 
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', function (e) 
+    {
       e.preventDefault();
 
       const name = nameInput.value.trim();
@@ -20,13 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      // Email validation
-      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-      if (!emailPattern.test(email)) {
-        showMessage("Please enter a valid email address.", "red");
-        return;
-      }
-
       // Simulate sending message
       form.reset();
       showMessage("Thank you! Your message has been sent.", "green");
@@ -37,8 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
       responseMsg.style.color = color;
 
       // Clear message after 5 seconds
-      setTimeout(() => {
+      setTimeout(() => 
+      {
         responseMsg.textContent = "";
       }, 5000);
     }
-  });
+});
