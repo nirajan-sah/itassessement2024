@@ -7,24 +7,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateTotals = () => {
         let subtotal = 0;
 
-        cartTable.querySelectorAll('tr').forEach(row => {
-            const price = parseFloat(row.children[3].textContent.replace('$', ''));
+        const rows = cartTable.querySelectorAll('tr');
+        subtotal = 0;
+        
+        rows.forEach(function(row) {
+            // Get the price from the 4th cell (index 3) and remove the dollar sign
+            const priceText = row.children[3].textContent;
+            const priceWithoutDollar = priceText.replace('$', '');
+            const price = parseFloat(priceWithoutDollar);
+        
+            // Get the quantity input value
             const qtyInput = row.querySelector('input');
-            const qty = parseInt(qtyInput.value) || 0;
-            const total = price * qty;
-
-            row.children[5].textContent = `$${total.toFixed(2)}`;
+            let quantity = parseInt(qtyInput.value);
+        
+            // If quantity is not a number, set it to 0
+            if (isNaN(quantity)) {
+                quantity = 0;
+            }
+        
+            // Calculate total for the row
+            const total = price * quantity;
+        
+            // Update the 6th cell (index 5) with the total, formatted as dollars
+            row.children[5].textContent = '$' + total.toFixed(2);
+        
+            // Add the total to the subtotal
             subtotal += total;
         });
+        
 
         let discount = 0;
-        if (couponInput.value === 'SAVE10') {
+        if (couponInput.value === 'SAVE10' || 'save10') {
             discount = subtotal * 0.10;
         }
+
+        //calculate final total amount
         
         let finalTotal = subtotal - discount;
         
-
+        //// Update the subtotal cell (respective row, second column)
         subTotal.rows[0].cells[1].textContent = `$ ${subtotal.toFixed(2)}`;
         subTotal.rows[2].cells[1].textContent = `$ ${discount.toFixed(2)}`;
         subTotal.rows[3].cells[1].textContent = `$ ${finalTotal.toFixed(2)}`;
