@@ -54,6 +54,7 @@ body {
   max-width: 13200px;
 }
 
+/* Style for the Navigation bar and logo */
 #header{
     display: flex;
     align-items: center;
@@ -113,6 +114,7 @@ body {
 
 }
 
+/* Style for the Hero section in home page*/
 #Banner{
     background-image: url("Pictures/Head-Banner/Banner3.jpg");
     height: 90vh;
@@ -164,6 +166,7 @@ button:hover{
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+/* Style for the features box */
 #features
 {
   display: flex;
@@ -171,10 +174,12 @@ button:hover{
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
 #features .fe-box img{
   width: 100%;
   margin-bottom: 10px;
 }
+
 #features .fe-box
 {
   width: 320px;
@@ -200,6 +205,7 @@ button:hover{
   background-color: #e2e1e8;
 }
 
+/* Style for products */
 #product1{
   text-align: center;
 }
@@ -274,6 +280,7 @@ button:hover{
   right: 10px;
 }
 
+/* Style for the newsletter section */
 #newsletter{
   display: flex;
   justify-content: space-between;
@@ -327,6 +334,8 @@ button:hover{
   border-bottom-left-radius: 0;
   border: none;
 }
+
+/* Style for the footer section */
 
 footer{
   display: flex;
@@ -382,6 +391,7 @@ footer a:hover{
   color: #088178;
 }
 
+/* Style for the page header for the gallery.html */
 #page-header{
   background-image: url("Pictures/Head-Banner/b19.jpg");
   width: 100%;
@@ -446,6 +456,8 @@ footer a:hover{
   background-image: url("Pictures/about/banner.png");
 }
 
+/* Style for the about.html */
+
 #about-head{
   display: flex;
   align-items: center;
@@ -464,6 +476,8 @@ footer a:hover{
   text-align: center;
 }
 
+/* Style for video in gallery.html */
+
 #about-app .video{
   width: 70%;
   height: 100%;
@@ -475,6 +489,8 @@ footer a:hover{
   height: 100%;
   border-radius: 20px;
 }
+
+/* Style for contact.html */
 
 #contact-details{
   display: flex;
@@ -552,6 +568,8 @@ footer a:hover{
   margin-bottom: 20px;
   border: 1px solid #e0dbdb;
 }
+
+/* Style for cart.html */
 
 #cart table{
   width: 100%;
